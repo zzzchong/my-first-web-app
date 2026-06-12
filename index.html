@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maths Quiz</title>
+</head>
+<body>
+    <h1>Maths Quiz</h1>
+
+    <p id="question"></p>
+
+    <input id="answer" type="text">
+    <button onclick="checkAnswer()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+        let score = 0;
+        let currentQuestion = 0;
+
+        const questions = [
+            { q: "7 × 8 = ?", a: "56" },
+            { q: "12 × 9 = ?", a: "108" },
+            { q: "15 ÷ 3 = ?", a: "5" }
+        ];
+
+        function showQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestion].q;
+            document.getElementById("answer").value = "";
+            document.getElementById("result").innerText = "";
+        }
+
+        function checkAnswer() {
+            let userAnswer = document.getElementById("answer").value;
+
+            if (userAnswer == questions[currentQuestion].a) {
+                score++;
+                document.getElementById("result").innerText = "Correct!";
+            } else {
+                document.getElementById("result").innerText = "Incorrect!";
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                setTimeout(showQuestion, 800);
+            } else {
+                setTimeout(() => {
+                    document.body.innerHTML =
+                        "<h1>Your score: " + score + "/" + questions.length + "</h1>";
+                }, 800);
+            }
+        }
+
+        window.onload = showQuestion;
+    </script>
+</body>
+</html>
