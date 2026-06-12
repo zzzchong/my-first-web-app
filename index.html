@@ -17,11 +17,13 @@
         let score = 0;
         let currentQuestion = 0;
 
-        const questions = [
-            { q: "7 × 8 = ?", a: "56" },
-            { q: "12 × 9 = ?", a: "108" },
-            { q: "15 ÷ 3 = ?", a: "5" }
-        ];
+	const questions = [
+    { q: "7 × 8 = ?", a: "56" },
+    { q: "12 × 9 = ?", a: "108" },
+    { q: "15 ÷ 3 = ?", a: "5" },
+    { q: "3² = ?", a: "9" },
+    { q: "25% of 80 = ?", a: "20" }
+];
 
         function showQuestion() {
             document.getElementById("question").innerText = questions[currentQuestion].q;
